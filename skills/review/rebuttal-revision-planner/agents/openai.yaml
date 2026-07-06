@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rebuttal Revision Planner"
+  short_description: "审稿意见分类、回复策略与修订计划"
+  default_prompt: "Use $rebuttal-revision-planner to classify these reviewer comments and draft a revision response plan."

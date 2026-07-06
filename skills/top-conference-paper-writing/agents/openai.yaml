@@ -1,0 +1,4 @@
+interface:
+  display_name: "Top Conference Paper Writing"
+  short_description: "密码学、联邦学习与隐私计算论文写作规范"
+  default_prompt: "Use $top-conference-paper-writing to revise my cryptography, federated learning, or privacy-computing paper section for top-conference style."

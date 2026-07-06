@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experiment Plan"
+  short_description: "把论文主张拆成可执行实验路线"
+  default_prompt: "Use $experiment-plan to design claim-driven experiments for this CS paper idea."

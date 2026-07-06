@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Library Manager"
+  short_description: "管理 PDF、BibTeX、笔记和阅读状态"
+  default_prompt: "Use $literature-library-manager to organize my CS literature library and reading status."

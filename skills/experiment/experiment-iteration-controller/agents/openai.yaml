@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experiment Iteration Controller"
+  short_description: "管理 CS 论文实验的多轮验证闭环"
+  default_prompt: "Use $experiment-iteration-controller to decide the next experiment iteration for this CS paper idea."

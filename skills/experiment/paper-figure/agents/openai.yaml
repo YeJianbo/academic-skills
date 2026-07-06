@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Figure"
+  short_description: "从实验结果生成论文图表和LaTeX片段"
+  default_prompt: "Use $paper-figure to turn these experiment results into publication-ready figures and tables."

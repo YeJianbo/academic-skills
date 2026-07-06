@@ -1,0 +1,4 @@
+interface:
+  display_name: "Benchmark Baseline Registry"
+  short_description: "整理 CS 论文基准、baseline 与指标"
+  default_prompt: "Use $benchmark-baseline-registry to build the benchmark and baseline registry for this CS paper idea."

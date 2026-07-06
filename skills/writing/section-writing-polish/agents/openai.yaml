@@ -1,0 +1,4 @@
+interface:
+  display_name: "Section Writing Polish"
+  short_description: "按章节小节写作、改写、翻译与润色"
+  default_prompt: "Use $section-writing-polish to draft or polish this paper section while preserving its technical meaning."

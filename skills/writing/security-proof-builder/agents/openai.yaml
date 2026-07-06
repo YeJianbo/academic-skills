@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Proof Builder"
+  short_description: "起草安全/隐私定义、定理与证明"
+  default_prompt: "Use $security-proof-builder to draft the security definitions and proof sketch for this protocol."

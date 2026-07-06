@@ -1,0 +1,4 @@
+interface:
+  display_name: "Related Work Synthesizer"
+  short_description: "把 CS 文献池整理成相关工作"
+  default_prompt: "Use $related-work-synthesizer to organize these CS papers into a Related Work section."

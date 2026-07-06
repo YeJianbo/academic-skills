@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Privacy Auditor"
+  short_description: "审查威胁模型、安全隐私定义和证明"
+  default_prompt: "Use $security-privacy-auditor to audit the threat model, privacy claims, and security proof of this paper."

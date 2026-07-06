@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Architecture Planner"
+  short_description: "规划论文主线、章节结构和逐节写作路线"
+  default_prompt: "Use $paper-architecture-planner to plan the architecture, evidence map, and section-by-section drafting queue for my cryptography, federated learning, or privacy-computing paper."

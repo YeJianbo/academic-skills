@@ -1,0 +1,37 @@
+{
+  "skill_name": "academic-paper-de-vibe",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "请检查并润色以下论文段落，消除其中的AI味：\n\nIntroduction: Recently, Large Language Models have shown great potential in various tasks. Therefore, it is crucial to improve their efficiency. In this paper, we elegantly propose a new method to address this. Our paper focus on efficiency rather than accuracy.\n\nMethod:\nWe utilize a novel framework to process data. The formulation is as required:\n* First, we collect the data.\n* Then, we apply our transformation.\n* Finally, we get the result.\n\nOur method is theoretically sound and solves the problem vibrant and effectively.",
+      "expected_output": "识别出虚浮词汇、并行列表改为段落、修正 therefore 位置。",
+      "assertions": [
+        {"name": "No Overclaims", "type": "negative_match", "pattern": "(elegantly|vibrant|theoretically sound|crucial)"},
+        {"name": "No AI Phrases", "type": "negative_match", "pattern": "(formulation is as required|focus on.*rather than)"}
+      ],
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "以下是一个方法论部分的草稿，请按照顶会标准进行修复，特别是处理符号定义和冗余代码：\n\nMethodology:\nThe final score is calculated as S = w * x + b. This formulation is as required. We also provide the following algorithm to show our logic:\n\nAlgorithm 1: Data Process\n1. Input x\n2. Output y = x + 1\n\nAs therefore mentioned, we elegantly compare our method with baselines here to show it is better. Our method is very vibrant.",
+      "expected_output": "定义符号 w, x, b；删除简单的 Algorithm 1；将 Baseline 比较移出 Method。",
+      "assertions": [
+        {"name": "Symbol Definitions", "type": "positive_match", "pattern": "(where.*denotes|let.*be|denote)"},
+        {"name": "No Redundant Code", "type": "negative_match", "pattern": "Algorithm 1"}
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "修复以下 CS 论文中涉及架构命名和理论证明的部分：\n\nMethod:\nOur architecture consists of the **Enhanced Attention-based Global Context Extraction Module (EAGCEM)** and the **Adaptive Local Feature Refinement Network (ALFRN)**. The **EAGCEM** elegantly extracts global features. \n\nTheorem 1: If the input is valid, the output will be correct.\nProof: Since we use EAGCEM, the transformation is robust. Therefore, the result follows. \n\nIn our ablation study, we found that ALFRN improves performance by 2%. This is very vibrant and crucial.",
+      "expected_output": "精简冗长的模块名；移除过度加粗；指出 Theorem 1 的平庸和逻辑断裂并修复；移除 Overclaims。",
+      "assertions": [
+        {"name": "Simplified Naming", "type": "negative_match", "pattern": "Enhanced Attention-based Global Context Extraction Module"},
+        {"name": "No Excessive Bolding", "type": "negative_match", "pattern": "\\*\\*[A-Z]+\\*\\*"},
+        {"name": "Logical Proof", "type": "negative_match", "pattern": "If the input is valid, the output will be correct"},
+        {"name": "No Overclaims", "type": "negative_match", "pattern": "(vibrant|crucial|elegantly)"}
+      ],
+      "files": []
+    }
+  ]
+}

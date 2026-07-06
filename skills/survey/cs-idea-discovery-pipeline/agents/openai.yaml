@@ -1,0 +1,4 @@
+interface:
+  display_name: "CS Idea Discovery Pipeline"
+  short_description: "主题驱动、宽检索的CS论文选题闭环"
+  default_prompt: "Use $cs-idea-discovery-pipeline to discover a feasible computer science paper idea for a specified topic, searching broadly across reputable relevant venues and optionally evaluating submission venue fit."

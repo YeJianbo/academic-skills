@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evaluation Reproducibility Auditor"
+  short_description: "审查实验公平性、攻击评估和复现性"
+  default_prompt: "Use $evaluation-reproducibility-auditor to audit the experiments, baselines, attacks, and reproducibility of this paper."

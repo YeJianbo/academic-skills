@@ -1,0 +1,4 @@
+interface:
+  display_name: "Experiment Results Analyzer"
+  short_description: "汇总实验结果并判断假设是否成立"
+  default_prompt: "Use $experiment-results-analyzer to analyze these experiment logs and decide whether the hypothesis is supported."

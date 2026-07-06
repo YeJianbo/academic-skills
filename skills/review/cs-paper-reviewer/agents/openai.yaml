@@ -1,0 +1,4 @@
+interface:
+  display_name: "CS Paper Reviewer"
+  short_description: "计算机科学论文投稿前整体审查"
+  default_prompt: "Use $cs-paper-reviewer to review this CS paper and identify blocking issues before submission."

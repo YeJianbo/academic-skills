@@ -1,0 +1,20 @@
+Use $paper-evidence-distiller on every academic paper file under
+C:\Users\YeJianbo\Documents\Codex\2026-06-15\github-com-haojae-scipilot-writing-skill\work\papers\pdf
+and
+C:\Users\YeJianbo\Documents\Codex\2026-06-15\github-com-haojae-scipilot-writing-skill\work\papers\md .
+
+Write all outputs to
+C:\Users\YeJianbo\Documents\Codex\2026-06-15\github-com-haojae-scipilot-writing-skill\work\papers\distilled .
+
+Requirements:
+1. Process one paper at a time.
+2. For PDF input, keep and report the intermediate extracted Markdown path.
+3. Keep the exact six H1 sections required by the skill.
+4. Keep source anchors precise enough to locate the evidence quickly.
+5. Preserve all coefficients, p-values, CIs, sample details, robustness checks, and contradictions in `# 复核记录`.
+6. Do not infer time ranges, sample details, or significance that are not explicitly stated.
+7. After each paper, report:
+   - source file
+   - output file
+   - extraction/readability limitations
+   - whether any key evidence remained unconfirmed

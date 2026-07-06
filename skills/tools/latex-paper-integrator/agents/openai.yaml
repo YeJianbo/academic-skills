@@ -1,0 +1,4 @@
+interface:
+  display_name: "LaTeX Paper Integrator"
+  short_description: "整合 CS 论文 LaTeX/Typst 项目"
+  default_prompt: "Use $latex-paper-integrator to integrate these sections, figures, and citations into my CS paper project."
