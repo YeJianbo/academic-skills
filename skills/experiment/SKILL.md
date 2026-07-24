@@ -7,6 +7,10 @@ description: "计算机科学实验入口：面向联邦学习、隐私计算、
 
 用于学术实验全流程。默认服务计算机科学论文，尤其是联邦学习、隐私计算、密码学、安全与隐私保护机器学习。
 
+## 发布会导向
+
+开始设计实验、重排结果或制作论文图表前，读取 `../academic-hub/references/publication-story-principles.md`。实验围绕可证实的 `release thesis` 组织：每个 block 必须验证核心能力、归因机制、证明目标场景价值或排除主要替代解释。完整日志保留用于复现和审查，论文主结果只承载与 thesis 有关的证据。
+
 ## 主工作流
 
 1. `experiment-plan`: 把 idea 或论文 claim 转成 claim -> evidence -> run order 的实验计划。

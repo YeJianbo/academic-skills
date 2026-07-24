@@ -7,6 +7,10 @@ description: "计算机科学论文写作总入口：面向密码学、联邦学
 
 用于计算机科学论文与学术文本写作。默认流程是先规划，再按章节/小节起草，再润色，最后检查。
 
+## 发布会叙事
+
+在规划、起草、重写、压缩 Abstract/Introduction/Results/Conclusion 前，读取 `../academic-hub/references/publication-story-principles.md`。先锁定由最强证据支撑的 `release thesis`，再围绕它安排问题、机制、实验和记忆点。需要彻底调整主线时转 `paper-architecture-planner`；不要用局部改写掩盖主线缺乏证据的问题。
+
 ## 主工作流
 
 1. `paper-architecture-planner`: 确定论文架构、写作方向、章节职责和证据映射。

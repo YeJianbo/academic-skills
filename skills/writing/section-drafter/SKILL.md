@@ -10,10 +10,11 @@ description: "计算机科学论文逐节起草技能。用于根据 paper-archi
 ## 工作原则
 
 1. 一次只写一个章节或小节，不一次性写完整篇论文。
-2. 先把本节的 rhetorical job 写清楚，再写正文。
-3. 不编造 citation、实验数值、定理、证明结论或 baseline。
-4. 缺少材料时写 Draft 0，并用 `TODO:` 标出需要补充的证据。
-5. 保留术语、符号、引用键、公式标签和 LaTeX 命令。
+2. 对 Abstract、Introduction、Results、Discussion 或 Conclusion，先读取 `../../academic-hub/references/publication-story-principles.md`，把本节定位到 `release thesis` 的一个明确论证任务。
+3. 先把本节的 rhetorical job 写清楚，再写正文。
+4. 不编造 citation、实验数值、定理、证明结论或 baseline。
+5. 缺少材料时写 Draft 0，并用 `TODO:` 标出需要补充的证据。
+6. 保留术语、符号、引用键、公式标签和 LaTeX 命令。
 
 ## 输入契约
 
@@ -106,11 +107,11 @@ description: "计算机科学论文逐节起草技能。用于根据 paper-archi
 
 不要只描述数字：
 
-1. 先说表/图回答什么问题。
-2. 给关键结果。
-3. 解释为什么结果支持某个设计选择。
-4. 说明限制、异常或 tradeoff。
-5. 回扣 introduction 的痛点。
+1. 先说表/图如何检验核心 thesis。
+2. 给最能支撑主张的结果、条件和比较对象。
+3. 解释为什么结果支持某个设计选择，并说明它解决的实际问题。
+4. 只在会影响主张解释时简洁说明必要条件、异常或 tradeoff；不要把非核心维度写成整篇工作的失败叙事。
+5. 回扣 introduction 的痛点和本文选择的比较口径。
 
 ### Figure / Table Caption
 

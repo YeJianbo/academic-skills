@@ -7,6 +7,10 @@ description: "论文图表生成技能。用于从计算机科学实验结果生
 
 用于把实验结果转成论文图表。默认不改变数据，不美化掩盖结论。
 
+## 发布会式视觉叙事
+
+先读取 `../../academic-hub/references/publication-story-principles.md`，为每个主图指定一个可证实的结论。把最强证据放在首个视觉层级，caption 首句直接说明图支持的能力、条件和意义。不要修改数据、弱化必要统计信息或通过不公平轴范围制造优势。
+
 ## 图表类型
 
 - Main comparison table / bar chart。
@@ -19,7 +23,7 @@ description: "论文图表生成技能。用于从计算机科学实验结果生
 
 ## 工作流程
 
-1. 明确图要支持哪个 claim。
+1. 明确图要支持 `release thesis` 的哪个 claim、在哪些条件下成立。
 2. 读取结果数据和 experiment plan。
 3. 选择图型：有时间/round 用 line，方法比较用 grouped bar/table，tradeoff 用 curve，矩阵用 heatmap。
 4. 生成可复现脚本，不手改最终图片。

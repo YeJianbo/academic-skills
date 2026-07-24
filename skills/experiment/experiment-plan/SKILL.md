@@ -7,6 +7,10 @@ description: "计算机科学实验规划技能。用于把联邦学习、隐私
 
 用于在写代码和跑实验前，把论文主张拆成可验证证据。
 
+## 发布会式实验设计
+
+先读取 `../../academic-hub/references/publication-story-principles.md`，再确定实验。先从已有先导结果或机制推断中选择一个可证实的 `release thesis`；不要为了凑完整指标表而把非优势维度设为主战场。每个实验 block 必须写明它服务的 thesis、支持条件、关键对比和要排除的替代解释。
+
 ## 输入
 
 - paper idea 或 hypothesis。
@@ -19,13 +23,13 @@ description: "计算机科学实验规划技能。用于把联邦学习、隐私
 
 默认输出：
 
-1. **Claim Map**: 每个论文主张对应需要什么证据。
-2. **Experiment Blocks**: sanity、pilot、main comparison、ablation、sensitivity、robustness、efficiency。
+1. **Claim Map**: 每个论文主张对应需要什么证据，并标注是否属于核心 `release thesis`。
+2. **Experiment Blocks**: sanity、pilot、main comparison、ablation、sensitivity、robustness、efficiency；每个 block 标明论证职责。
 3. **Baselines and Attacks**: 需要比较的算法、协议、攻击和防御。
 4. **Metrics**: utility、privacy/security、efficiency、reproducibility。
 5. **Run Order**: 先跑什么，失败如何停止或回退。
 6. **Compute Budget**: 数据规模、epoch、seed、GPU、预计耗时。
-7. **Risk Register**: 可能失败的点和替代实验。
+7. **Risk Register**: 可能失败的点、会影响 thesis 的反例和替代实验。
 
 ## CS/FL/隐私计算必检项
 
