@@ -1,15 +1,6 @@
 ---
 name: scansci-pdf
-description: >
-  Use this skill whenever the user wants to download academic papers, search for research literature,
-  get citations (BibTeX/RIS/EndNote), manage WebVPN institutional proxy for paper access,
-  import .bib files, or batch-download papers. This skill orchestrates the scansci-pdf MCP server
-  which has 13+ download sources, 100+ university WebVPNs, and parallel download.
-  TRIGGER when: user mentions downloading papers, DOI, arXiv ID, Sci-Hub, paper search,
-  literature review, citation export, WebVPN, institutional access, "帮我下载论文", "搜索文献",
-  "批量下载", "论文下载", "文献检索", or provides a list of DOIs/arXiv IDs.
-  SKIP: user is only discussing papers conceptually without intent to download/search/cite,
-  or user asks about non-academic PDFs (invoices, reports, etc.).
+description: 下载指定或批量论文、解析 DOI/arXiv/标题、导出引用及处理所需全文访问。使用可用 MCP 或官方/OA 直链；宽主题文献发现由 cs-literature-search 负责。
 ---
 
 # scansci-pdf — 学术论文下载 MCP 服务
@@ -17,6 +8,10 @@ description: >
 ## 概述
 
 scansci-pdf 是一个 MCP 服务器，提供 21 个工具，覆盖学术论文的搜索、下载、引文导出和 WebVPN 机构代理管理。支持 13+ 数据源并行下载，100+ 中国高校 WebVPN。
+
+## 工具可用性
+
+先检查当前会话是否提供所需 MCP 工具；文档中的工具名不等于可调用能力。工具缺失时使用官方网页检索、OA/arXiv/会议或作者 PDF 直链，以及可用的本地下载工具继续已授权任务；只有实际依赖的能力缺失才报告阻碍。不为普通下载要求安装整套插件或机构登录。
 
 ## 能力边界
 
@@ -156,7 +151,7 @@ scansci-pdf 是一个 MCP 服务器，提供 21 个工具，覆盖学术论文�
 - 单篇/批量论文下载：只要用户给 DOI、arXiv ID、BibTeX、论文标题列表、论文清单文件，优先直接用本 skill，不要强行先走 `survey/cs-literature-search` 或 OpenAlex。
 - 网络直链可下载：如果 Codex 网络检索已经找到官方 PDF、arXiv PDF、OpenReview PDF、会议 proceedings PDF 或作者主页 PDF，可以直接下载并记录来源；不必调用本 skill。
 - 元数据检索和初筛：只有用户是在探索主题、需要候选标题池、标题/摘要筛选时，才用 `survey/cs-literature-search`。
-- 调研前机构授权与访问验证：先用 `institutional-access-resolver`。
+- 实际需要机构订阅全文、公开来源不可得时，使用 `institutional-access-resolver`；公开元数据和 OA 下载直接进行。
 - 批量、断点续传、多源并行、WebVPN、标题解析、BibTeX 导入、下载失败重试：使用本 skill。
 - 学校账户/WebVPN 只解决出版社全文访问，不替代文献检索；但已有 DOI/arXiv/title 时，下载不需要先跑 OpenAlex。
 
@@ -166,11 +161,11 @@ scansci-pdf 是一个 MCP 服务器，提供 21 个工具，覆盖学术论文�
 
 ```
 1. scansci_pdf_search(query="plant functional traits climate change", year_from=2020, limit=20, sort="cited_by_count")
-2. 展示搜索结果给用户，让用户选择要下载的论文
-3. scansci_pdf_download(identifier=用户选择的DOI) 或 scansci_pdf_batch_download(identifiers=[...])
+2. 按用户主题、年份、数量和相关性筛选；已有下载授权时直接形成下载清单
+3. scansci_pdf_download(identifier=筛选后的DOI) 或 scansci_pdf_batch_download(identifiers=[...])
 ```
 
-**关键点：** 搜索后必须让用户确认，不要自动下载所有结果。
+**关键点：** 复用已有下载授权，在指定范围内筛选和下载，不机械下载全部搜索结果。范围存在影响结果的歧义时才补问；用户只要求搜索时交付候选，不擅自扩成批量下载。
 
 ### 流程 1A：已有 DOI/arXiv/title 列表直接下载
 
@@ -220,7 +215,7 @@ scansci-pdf 是一个 MCP 服务器，提供 21 个工具，覆盖学术论文�
 5. scansci_pdf_download(identifier="...", use_vpnsci=true)
 ```
 
-调研批量下载前，先用 `institutional-access-resolver` 完成一次授权和测试 DOI 验证；测试通过后再批量下载，避免跑到一半才发现登录态不可用。
+只有实际需要机构访问的论文才进入上述流程；优先复用有效登录态，失效时由用户手动重新认证。用当前所需全文验证访问后继续该批订阅论文，其他公开论文独立下载。
 
 若 `scansci_pdf_vpnsci_schools` 找不到学校，或学校没有支持的 WebVPN 模板：
 

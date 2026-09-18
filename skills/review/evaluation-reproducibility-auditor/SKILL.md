@@ -1,6 +1,6 @@
 ---
 name: evaluation-reproducibility-auditor
-description: "实验与复现专项审查技能。用于审查联邦学习、隐私计算、安全与隐私保护机器学习论文中的实验设计、baseline 公平性、攻击评估、utility/privacy/efficiency tradeoff、消融、超参敏感性、复杂度、实现细节、数据划分、随机性、硬件环境和复现材料。"
+description: 审查实验公平性、攻击评估、baseline、指标和复现证据。输出问题与修复条件；实验设计、运行和图表美化各有专用技能。
 ---
 
 # Evaluation Reproducibility Auditor

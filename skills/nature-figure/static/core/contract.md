@@ -1,12 +1,12 @@
 # Figure contract before plotting
 
-A publication-quality scientific figure is a visual argument, not an isolated pretty plot. Every figure starts from a claim, an evidence hierarchy, and a review-risk check before code or aesthetics. Before generating or editing code, establish the contract below.
+For a new figure or a structural redesign, establish the scientific claim, evidence and relevant design constraints below. Reuse an existing figure contract and editable source. A label, color, spacing or export adjustment needs only the changed requirements and affected checks; do not rebuild the full contract before every edit.
 
-## Backend selection is a blocking gate
+## Backend selection
 
-If the user has not explicitly chosen Python or R in the current request or provided a clearly language-specific input file/workflow, ask one concise question: **Python or R?** Then stop and wait for the user's answer. Do not generate mock data, write scripts, create figures, or choose Python/R by default. This overrides general autonomy/default-execution behavior for figure tasks.
+Honor an explicit choice in the current request, then an established choice in the conversation or applicable AGENTS.md. Otherwise use R. A request to modify or continue existing Python plotting code is an explicit Python workflow; a CSV, NumPy output, or Python data-processing script alone is not. State the selected backend and proceed; do not ask the user to repeat a choice or confirm the R default.
 
-Only recommend a backend when the user explicitly asks you to choose or recommend one. In that case, use `references/backend-selection.md`, state the reason, and then proceed with the recommended backend.
+When the user asks for a backend recommendation, consult `references/backend-selection.md`, explain the relevant trade-off, and proceed with the recommendation within the requested scope.
 
 ## The selected backend is exclusive
 

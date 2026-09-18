@@ -1,4 +1,0 @@
-interface:
-  display_name: "Context Budget Manager"
-  short_description: "压缩任务、读取、调研和子代理上下文"
-  default_prompt: "Use $context-budget-manager to compress the task, minimize file reads and research, manage subagent context, and produce a compact handoff."

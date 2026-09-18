@@ -1,16 +1,8 @@
 # Backend Selection
 
-At the start of a figure task, ask the user to choose **Python or R** if they have
-not already specified a backend. This is a blocking gate: stop after asking and wait
-for the user's answer. Do not infer Python just because the task involves simulation,
-NumPy-like data, or custom layout, and do not infer R just because the task is biological
-or omics-adjacent.
+Use the selection rule in `../static/core/contract.md`: honor the current request and established user instructions, including AGENTS.md; otherwise use R. Continue directly without repeated confirmation.
 
-Use the decision table only in either of these cases:
-
-- the user explicitly asks you to recommend or choose the backend;
-- the user provides an unambiguous language-specific workflow or file, such as an `.R`
-  script, RDS object, Python notebook, or existing Python plotting code.
+Use the table below only when the user asks for a recommendation or explicitly requests adapting an existing plotting workflow. Data format or subject area alone does not override an established preference.
 
 ## Quick decision table
 

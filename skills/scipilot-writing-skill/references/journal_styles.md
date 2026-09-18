@@ -103,4 +103,4 @@ Results 报校正前后估计 + 95% CI；Discussion 含 Limitations 偏倚方向
 1. 目标刊属于哪一栏（§2）？→ 决定语气、主动/被动、claim 强度、是否要"写给外行"的组件。
 2. 篇幅与 display 限制（§1）？→ 决定详略与什么进正文 vs 补充材料。
 3. 研究类型对应哪个报告规范（§3）？→ Methods/Results 必须覆盖其清单项。
-4. 引用格式与文献交给 `scipilot-cite-skill`；配图交给 `scipilot-figure-skill`。
+4. 引用格式与文献交给 `cs-literature-search`；配图交给 `scipilot-figure-skill`。

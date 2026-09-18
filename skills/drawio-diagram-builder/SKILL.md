@@ -1,6 +1,6 @@
 ---
 name: drawio-diagram-builder
-description: Create, edit, replicate, and iteratively refine editable research and technical diagrams in diagrams.net/draw.io (.drawio XML) from prompts, papers, repositories, screenshots, or existing diagrams. Use when asked to generate a scientific figure, paper method diagram, ML/system architecture diagram, draw.io file, reference figure reproduction, browser screenshot feedback loop, Windows-safe draw.io preview, or layout fixes for text overlap, arrows, colors, icons, fonts, and component alignment.
+description: 创建、复刻或修改可编辑的 draw.io 研究与技术示意图。复用已有图源与素材，核对拓扑和实际渲染；数值图使用 nature-figure，明确的 AI 构图探索使用对应图像技能。
 ---
 
 # Research Draw.io Diagram Builder
@@ -26,6 +26,10 @@ Produce an editable draw.io diagram first, especially for research and technical
 
 Prefer direct `.drawio` XML authoring plus browser screenshot feedback for complex or high-fidelity diagrams. Use local draw.io UI control only when it materially improves inspection or user handoff.
 
+## Incremental edits
+
+For an existing editable figure, modify its source and reuse its topology, palette, icons and working paths. A local label, color, alignment or export change does not require a new raster concept or the full reference-replication workflow. Export and inspect only affected requested formats; keep one current preview. Preserve raw references and any review history actually needed, without duplicating specifications or creating a new attempt directory each time.
+
 ## Tool Strategy
 
 Use this priority order:
@@ -38,7 +42,7 @@ Use this priority order:
 
 Load `references/drawio-workflow.md` for the detailed end-to-end process. Load `references/self-supervision-and-intake.md` for any non-trivial diagram, mixed prompt-plus-image input, project-context diagram, or iterative visual repair. Load `references/xml-authoring.md` when writing or repairing XML shapes, styles, edges, and text layout. Load `references/primitive-icons.md` when a reference figure contains small modality, memory, warning, tool, clock, document, or other paper-style icons that should remain editable. Load `assets/icons/ICON-MANIFEST.md` when generic SVG icon assets would improve fidelity.
 
-For any reference-image replication request, load `references/reference-replication-protocol.md` before creating XML. This is mandatory. Treat high-fidelity replication as an evidence pipeline: observe the reference, specify geometry, author XML, render, compare, patch, and repeat. Do not start drawing from a reference image until the protocol's required intermediate artifacts exist.
+For a new complex, high-fidelity reference-image replication without reusable source, load `references/reference-replication-protocol.md` before creating XML. Local edits of an existing source reuse its records and skip this full protocol. Treat high-fidelity replication as an evidence pipeline: observe the reference, specify geometry, author XML, render, compare, patch, and repeat. Do not start drawing from a reference image until the protocol's required intermediate artifacts exist.
 
 Resolve all references relative to the skill directory.
 

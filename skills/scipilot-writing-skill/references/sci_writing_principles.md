@@ -114,7 +114,7 @@
 ### 6.6 其他一致性
 - Oxford comma（随刊）；连字符（作定语时 well-known、state-of-the-art）。
 - 物种名斜体（*E. coli*）；基因/蛋白命名遵循领域命名委员会。
-- 参考文献格式全文统一（交给 `scipilot-cite-skill`）。
+- 参考文献格式全文统一（交给 `cs-literature-search`）。
 
 ---
 

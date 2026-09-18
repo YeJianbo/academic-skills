@@ -1,6 +1,6 @@
 ---
 name: cs-literature-search
-description: "计算机科学文献检索与阶段门控筛选技能。用于任意 CS 主题的宽范围候选标题返回、标题级筛选、摘要级筛选、入库、下载队列和全文阅读交接；默认按主题检索有声誉的相关顶会/顶刊、强相邻领域和高质量预印本，投稿目标会议/期刊是可选适配信息且不默认限制检索范围；默认不强制 OpenAlex，优先使用 Codex 网络检索、DBLP、Crossref、arXiv、Semantic Scholar、会议 proceedings 和用户给定 DOI/arXiv/title 列表，OpenAlex 只作为显式可选补充源；能从官方/OA/arXiv/作者主页直接下载 PDF 时直接下载，批量和困难下载交给 scansci-pdf。"
+description: 检索并核验外部论文、相近工作和引用候选。用于找文献及补来源；指定论文下载使用 scansci-pdf，已有文献的正文综合使用 related-work-synthesizer。
 ---
 
 # CS Literature Search
@@ -16,7 +16,7 @@ description: "计算机科学文献检索与阶段门控筛选技能。用于任
 5. **Topic first**：默认按文章主题检索，不要求用户先给投稿会议。
 6. **Submission venue is not search scope**：用户给出的目标会议/期刊是投稿定位约束，不默认限制检索范围；只有用户明确说“只查某会议/期刊”时才收窄。
 7. **Reputable venue broad search**：按主题覆盖有声誉的 CS 顶会/顶刊、强相邻领域和高质量预印本；用会议名、年份、关键词、DBLP/proceedings、arXiv title match 组合补漏。
-8. **Institutional access for download**：学校账户只用于全文访问和下载；调研前授权交给 `tools/institutional-access-resolver`，批量/困难下载交给 `tools/scansci-pdf`。
+8. **Institutional access for download**：学校账户只用于全文访问和下载；实际需要订阅全文时将访问处理交给 `tools/institutional-access-resolver`，批量/困难下载交给 `tools/scansci-pdf`。
 9. **Key-only optional**：IEEE Xplore、Lens、Scopus、Web of Science 只在用户已配置 key 或学校平台可网页访问时作为增强源。
 10. **Deduplicate before download**：下载前按 DOI、arXiv ID、title normalized key 去重。
 11. **Rate-limit fallback**：Semantic Scholar、OpenAlex、Crossref、arXiv 等元数据 API 被限流、429、当天额度用尽或连续超时时，不要反复重试；在 search log 写明不可用原因，立即转官方 proceedings、OpenReview、USENIX/ACM/IEEE/IACR/PoPETs 页面、DBLP、arXiv API、作者主页和普通网页搜索。
@@ -55,7 +55,7 @@ python scripts/cs_lit_search.py --query "<topic keywords> <target method/problem
 
 ## 阶段门控流程
 
-严格按以下顺序执行，不要从 raw metadata 直接下载全文：
+宽范围探索性检索按以下顺序筛选，并复用已有状态；用户已指定的论文或已核验条目直接获取和阅读，不重复过门：
 
 1. **Topic contract**：确定主题、关键词、年份、实际检索范围、排除范围和停止条件；投稿目标 venue 可选。
 2. **Metadata/title retrieval**：只取 title、year、venue、DOI/arXiv、URL、source；不下载 PDF，不逐条打开 publisher 页面。
@@ -66,7 +66,7 @@ python scripts/cs_lit_search.py --query "<topic keywords> <target method/problem
 7. **PDF download**：先尝试网络直链/OA PDF；批量、WebVPN、失败重试再交给 `scansci-pdf`。下载失败记录原因，不阻塞阅读已有核心池。
 8. **Full reading**：只对 core PDF 做全文精读和 evidence matrix。
 
-阶段状态必须写入 CSV/JSON，避免下一轮重复筛选：
+批量或跨轮检索在已有 CSV/JSON 中维护阶段状态，避免重复筛选；短查询可直接交付来源，不强制新建状态文件：
 
 | Status | Meaning |
 |---|---|
@@ -107,6 +107,12 @@ python scripts/cs_lit_search.py --query "<topic keywords> <target method/problem
 
 当第一阶段已经有 30-40 篇高质量 PDF 时，不要为了凑满数量把低质量条目硬塞入核心池。应先阅读已有核心池，再按结构性缺口定向补文献。
 
+## 增量检索与文件复用
+
+继续同一主题时先复用现有文献库、全文、笔记和检索记录。仅对新问题、缺失证据或会随时间变化的事实补查；来源冲突或内容更新时重新核验相关部分，不为达到固定引用数重复检索。
+
+沿用当前主题目录与规范文件名，更新现有清单。下载缓存、提取文本和临时文件集中放到已有工作目录；没有约定时按需用 `work/<topic>/`。不为每次重试创建新的 dated/final-vN 文件夹，保留原始文献、证据锚点和需要比较的历史版本。
+
 ## 工作流
 
 1. **Query design**：把中文需求转成 2-4 组英文查询；先覆盖核心概念，不要一次性展开全部同义词。
@@ -125,9 +131,9 @@ python scripts/cs_lit_search.py --query "<topic keywords> <target method/problem
 
 学校账号不能直接替代 OpenAlex/arXiv/Crossref 这类元数据 API。它的作用是让下载请求经过学校图书馆订阅代理访问出版社全文。
 
-使用顺序：
+以下顺序仅用于本次实际需要机构订阅、且公开全文不可得的条目；已有有效登录态直接复用，其他公开论文独立下载：
 
-1. 先用本 skill 找到 DOI/arXiv ID。
+1. 使用本次已有 DOI/arXiv ID，缺标识时再检索。
 2. 用 `institutional-access-resolver` 完成学校授权：查询学校 -> 设置学校 -> CAS 登录 -> 测试连接。
 3. 下载时使用 `scansci-pdf` 和 `use_vpnsci=true`。
 4. 若目标期刊学校未订阅，仍可能下载失败；此时改用 OA、作者主页、arXiv、conference proceedings 或请求用户提供可访问链接。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGY 后台协作"
+  short_description: "用已授权的 Gemini 或 Claude 模型后台咨询并核验实际输出"
+  default_prompt: "Use $agy for the requested external-model consultation, choose an available model within the existing authorization, and continue independent local work while it runs."

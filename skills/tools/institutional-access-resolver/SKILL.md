@@ -1,15 +1,15 @@
 ---
 name: institutional-access-resolver
-description: "学术论文机构访问授权与验证技能。用于调研或批量下载前通过学校账号、WebVPN、SeamlessAccess、Shibboleth、CAS、图书馆电子资源代理完成一次性手动授权，随后复用登录态下载付费论文；适用于出版社页面出现 Access Through Institution、East China Normal University、Sign in via your institution、Full text access may be available、学校统一身份认证、WebVPN 或机构订阅验证失败等场景。"
+description: "学术论文机构访问授权与验证技能。用于实际需要订阅全文时通过学校账号、WebVPN、SeamlessAccess、Shibboleth、CAS、图书馆电子资源代理完成一次性手动授权，随后复用登录态下载付费论文；适用于出版社页面出现 Access Through Institution、East China Normal University、Sign in via your institution、Full text access may be available、学校统一身份认证、WebVPN 或机构订阅验证失败等场景。"
 ---
 
 # Institutional Access Resolver
 
-用于在大规模文献调研前建立可复用的机构访问状态。它不保存账号密码，不绕过 CAS/验证码/二次验证；需要认证时，让用户在浏览器中手动登录。
+用于在实际需要机构订阅全文且公开来源不可得时建立或恢复访问状态；公开检索和 OA 下载直接进行，已有有效登录态优先复用。它不保存账号密码，不绕过 CAS/验证码/二次验证；需要认证时，让用户在浏览器中手动登录。
 
 ## 目标
 
-- 调研前先完成一次学校授权。
+- 仅在实际需要机构访问或用户明确要求配置机构访问时处理学校授权。
 - 验证当前浏览器、WebVPN 或下载工具是否能访问付费全文。
 - 批量下载时复用已登录 session。
 - 下载失败时区分登录失效、学校未订阅、出版社限制、网络或 DOI 问题。
@@ -21,7 +21,7 @@ description: "学术论文机构访问授权与验证技能。用于调研或批
    - 有 DOI 且学校 WebVPN 支持：优先用 `scansci-pdf` 的 WebVPN 流程。
    - 出版社页面显示 `Access Through Institution` / SeamlessAccess：让用户手动点学校并完成 CAS。
    - 已在浏览器登录学校图书馆：优先复用当前登录态。
-3. **Manual authorization**：用户在浏览器完成学校统一身份认证。不要要求用户把密码发给 Codex。
+3. **Manual authorization**：仅在没有有效登录态时，由用户在浏览器完成学校统一身份认证。不要要求用户把密码发给 Codex。
 4. **Session test**：用 1-2 篇需要机构权限的 DOI 测试全文访问。
 5. **Download handoff**：测试通过后，把 DOI 列表交给 `tools/scansci-pdf`，下载时使用 `use_vpnsci=true` 或复用浏览器/代理登录态。
 6. **Failure triage**：失败时记录原因并回退到 OA、arXiv、作者主页、conference proceedings 或手动下载。
@@ -37,7 +37,7 @@ description: "学术论文机构访问授权与验证技能。用于调研或批
 4. scansci_pdf_vpnsci_login
 5. 用户在打开的浏览器中完成 CAS/SSO 登录
 6. scansci_pdf_vpnsci_status
-7. scansci_pdf_vpnsci_test(doi="一篇需要机构权限的 DOI")
+7. scansci_pdf_vpnsci_test(doi="本次实际需要机构权限的 DOI")
 8. scansci_pdf_download(identifier="...", use_vpnsci=true)
 ```
 

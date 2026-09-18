@@ -1,6 +1,6 @@
 ---
 name: section-drafter
-description: "计算机科学论文逐节起草技能。用于根据 paper-architecture-planner 的蓝图，把密码学、联邦学习、隐私计算、安全与隐私保护机器学习论文的某个章节或小节写成 Draft 0 / Draft 1；覆盖摘要、引言段落、问题定义、威胁模型、协议描述、算法说明、定理解释、证明路线、实验设置、结果分析和小节过渡；不做最终润色，后续交给 section-writing-polish 和 academic-paper-de-vibe。"
+description: 根据已给材料起草计算机科学论文摘要、章节或整稿。保留证据与源格式；已有文本润色使用 section-writing-polish，主线重构使用 paper-architecture-planner。
 ---
 
 # Section Drafter
@@ -9,9 +9,9 @@ description: "计算机科学论文逐节起草技能。用于根据 paper-archi
 
 ## 工作原则
 
-1. 一次只写一个章节或小节，不一次性写完整篇论文。
-2. 对 Abstract、Introduction、Results、Discussion 或 Conclusion，先读取 `../../academic-hub/references/publication-story-principles.md`，把本节定位到 `release thesis` 的一个明确论证任务。
-3. 先把本节的 rhetorical job 写清楚，再写正文。
+1. 按用户请求的章节或整篇范围完成。内部可逐节起草，不把分节方式变成每轮只交一节的停止条件。
+2. 对首次设计或结构性改写的 Abstract、Introduction、Results、Discussion 或 Conclusion，按需读取 `../../academic-hub/references/publication-story-principles.md`，把本节定位到 `release thesis` 的一个明确论证任务。
+3. 从现有蓝图或上下文确定本节职责；只在需要解决结构问题时记录计划，不强制展示过程说明。
 4. 不编造 citation、实验数值、定理、证明结论或 baseline。
 5. 缺少材料时写 Draft 0，并用 `TODO:` 标出需要补充的证据。
 6. 保留术语、符号、引用键、公式标签和 LaTeX 命令。
@@ -135,7 +135,7 @@ description: "计算机科学论文逐节起草技能。用于根据 paper-archi
 
 ## 输出格式
 
-默认输出：
+默认交付完成自检后的正文和必要证据缺口，保留用户的 Markdown/LaTeX 结构。以下过程模板仅在用户要求写作过程、分阶段评阅或比较草稿时使用：
 
 ```markdown
 **Section Contract**
@@ -157,7 +157,7 @@ description: "计算机科学论文逐节起草技能。用于根据 paper-archi
 ...
 ```
 
-若用户要求“只给正文”，只输出 `Draft 1`。
+若用户要求“只给正文”，只输出最终正文；不要把 TODO、方法确认状态或内部自检记录插入可交付正文。尚需证据的事实单独说明，或按用户约定的草稿占位形式保留。
 
 ## 按需参考
 

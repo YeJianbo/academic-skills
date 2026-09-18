@@ -1,6 +1,6 @@
 ---
 name: cs-paper-reviewer
-description: "计算机科学论文整体审查技能，结合 academic-paper-reviewer 的多视角 peer review 和 editorial synthesis 框架。用于密码学、联邦学习、隐私计算、安全与隐私保护机器学习论文的投稿前自审、模拟审稿、顶会/安全会议质量评估、结构与贡献审查、claim-evidence 对齐、相关工作定位、图表和实验完整性检查；不直接改稿，只输出 findings-first 审查报告。"
+description: 审查计算机科学整篇论文的科学性、写作、成熟度或版本差异，输出带证据的问题与判断。仅审查不改稿；定理和实验专项检查使用对应 auditor。
 ---
 
 # CS Paper Reviewer
@@ -21,7 +21,7 @@ description: "计算机科学论文整体审查技能，结合 academic-paper-re
 
 ## Reviewer Panel
 
-Use 5 perspectives by default:
+For a substantial full review, choose relevant perspectives from the following list. A focused proof, paragraph, or quick review uses only the necessary checks:
 
 1. **Area Chair / EIC**: venue fit, novelty, significance, paper maturity, likely decision.
 2. **Security and Privacy Reviewer**: threat model, privacy/security definitions, assumptions, leakage, proofs.
@@ -29,7 +29,7 @@ Use 5 perspectives by default:
 4. **Domain and Related Work Reviewer**: positioning, missing literature, comparison fairness, contribution clarity.
 5. **Devil's Advocate Reviewer**: strongest rejection case, hidden assumptions, overclaiming, alternative explanations.
 
-Each reviewer must review independently. The final synthesis may aggregate and resolve disagreements, but it must not invent comments not supported by the perspective reviews.
+Distinguish a single-agent multi-perspective review from independent delegated reviews. Delegate only when permitted by the user/host and useful for disjoint evidence; never claim independent reviewers ran when they did not. Synthesize evidence, not a forced consensus or an average that hides a decisive flaw.
 
 ## Scoring Dimensions
 
@@ -78,6 +78,12 @@ Then synthesize:
 - reviewer disagreements,
 - final decision,
 - revision roadmap.
+
+## 版本对比与当前报告
+
+比较修订稿时区分“相对上一版改进”和“当前是否达到投稿要求”，不合并成一个分数。沿用已说明的评判维度；新问题注明来自新证据、稿件改动还是此前遗漏，不用不断更换标准抹去真实改进。没有可比分数时直接比较证据和阻碍。
+
+完整审查需要文件时更新既有规范报告；原稿、旧审稿意见和用于版本比较的记录保留。审查请求不直接改稿，用户已同时授权修改时在检查后继续相应修改，不把技能切换当作额外审批。
 
 ## 输出格式
 

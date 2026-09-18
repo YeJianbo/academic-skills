@@ -1,6 +1,6 @@
 ---
 name: related-work-synthesizer
-description: "计算机科学论文相关工作综合技能。用于把密码学、联邦学习、隐私计算、安全与隐私保护机器学习方向的文献池转成 Related Work 分类、技术路线图、共同局限、本文定位和差异化表述；适合从 survey 输出、BibTeX、论文笔记、paper-evidence-distiller 生成的 `.distilled.md` 证据卡或近三年顶会文献中组织相关工作，避免逐篇罗列。"
+description: 依据已有文献池和阅读证据组织 Related Work 分类、定位与正文。缺少具体来源时补查相应证据，不默认重做完整检索。
 ---
 
 # Related Work Synthesizer

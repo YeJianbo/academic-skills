@@ -61,7 +61,7 @@ state-of-the-art（CS 中 SOTA 可接受，他处慎用）。
 5. **降 promotional**：删 groundbreaking/revolutionary/seamlessly；**让数据自己说话**。
 6. **加 burstiness**：长短句交替，打破均匀节奏；允许简短有力的句子。
 7. **节制破折号**：多数 em dash 改逗号、冒号或拆句。
-8. **实化归因**："Studies show" → "Smith et al. (2021) report…"（找文献转 `scipilot-cite-skill`）。
+8. **实化归因**："Studies show" → "Smith et al. (2021) report…"（找文献转 `cs-literature-search`）。
 9. **回归领域具体性**：用本领域术语与精确量词替换 generic 形容词（robust→给指标；a wide range→列举/给范围）。
 10. **删 meta 套话**："It is worth noting / important to note" 一律删，直接说事。
 11. 改后做**一致性与事实核查**：去 AI 味绝不能引入夸大或改变数值/结论（IRON RULE 1/6）。
@@ -86,9 +86,6 @@ state-of-the-art（CS 中 SOTA 可接受，他处慎用）。
 
 ## 4. 输出规范（去 AI 味任务）
 
-- **Part 1**：重写文本（已足够好则原样返回）。LaTeX 守纯净+转义；Word 纯文本+全角+零 Markdown。
-- **Part 2**：直译核对（中↔英任务）。
-- **Part 3 / 检测结论**：
-  - 有修改 → 简述删改了哪些典型 AI 表达。
-  - 未修改 → 直接输出"**[检测通过] 原文表达地道自然，无明显 AI 味，建议保留。**"
-- 必过 `writing_lint.py`（抓词表/悬垂-ing/破折号/否定平行/连接词）+ `text_stats.py`（句长 cv 看节奏）。
+默认交付重写文本；已清晰自然则保留原文。LaTeX 保留公式与命令，Word 保留样式并避免正文 Markdown 污染。较长改写可简述主要变化，回译按用户要求或具体歧义需要提供。
+
+按需使用 `writing_lint.py` 和 `text_stats.py` 定位问题；风格命中不替代语义判断，不强行替换领域术语。

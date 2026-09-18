@@ -1,20 +1,6 @@
 ---
 name: paper-evidence-distiller
-description: |
-  把任意学术论文的 .md 或 .pdf 文件蒸馏成一份"最小但完整"的证据卡（.distilled.md），不是摘要；PDF 先抽取成中间 Markdown 再蒸馏。
-
-  Use this skill when the user supplies one or more academic paper .md or .pdf files and wants a
-  compact, evidence-grounded record of each paper that:
-  - keeps everything needed to interpret, trust, and reuse the paper's conclusions
-    (sample, time range, measures, key analyses, model specification, effect direction, etc.);
-  - drops repetition, generic background, irrelevant metadata, decorative content;
-  - binds every important claim to a source location (section name, page anchor, table/figure
-    number) so a reader can jump back to the original.
-
-  Trigger this skill whenever the user asks for paper notes / evidence cards / a distillation
-  of a research paper .md or .pdf, even if they don't say "paper-evidence-distiller". Do NOT use this
-  skill for non-academic documents, for full literature reviews, or for tasks that need the
-  author to keep reading beyond the supplied source file.
+description: 将用户给定的学术 PDF/Markdown 转成带原文位置的证据卡，保留关键主张及适用条件。用于单篇证据蒸馏；不代替跨论文综述、正式审稿或外部检索。
 ---
 
 # paper-evidence-distiller

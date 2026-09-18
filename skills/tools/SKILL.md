@@ -1,27 +1,19 @@
 ---
 name: tools
-description: "工具入口：LaTeX/Typst 论文集成、引用、统计、数据、检索、文献库管理、图表、上下文预算管理与工作流支持。"
+description: "学术文件与工具任务分流：编译排版、文献库和全文访问等目标不清时使用。明确的工具任务直接进入专用技能。"
 ---
 
-# Tools
+# Academic Tools
 
-用于学术工作的共享工具层。
+只解决当前产物需要的工具问题，不为普通学术任务加载整套工具目录。
 
-## 覆盖内容
+| 交付 | 负责技能 |
+|---|---|
+| LaTeX/Typst 集成、编译、引用/标签与模板检查 | `latex-paper-integrator` |
+| PDF 页面提取、版面或导出检查 | `pdf` |
+| 文献库去重、BibTeX、阅读状态和文件整理 | `literature-library-manager` |
+| 指定论文下载、引文导出或批量全文 | `scansci-pdf` |
+| 实际需要机构订阅的授权与访问恢复 | `institutional-access-resolver` |
+| 数值绘图、图型判断、可编辑示意图 | 分别直达 `nature-figure`、`scipilot-figure-skill`、`drawio-diagram-builder` |
 
-- `latex` / `typst`：论文排版、模板、公式、编译、cross-reference、匿名化检查；论文项目集成使用 `latex-paper-integrator`
-- `citation`：引用管理、Bib 检查、参考文献核验
-- `statistics`：统计建模、假设检验、功效分析
-- `data`：清洗、转换、分析、结果汇总
-- `diagram` / `dataviz`：流程图、学术插图、论文图表
-- `research` / `search`：数据库检索、引文追踪、文献发现；CS 文献检索优先走 `survey/cs-literature-search`
-- `institutional-access`：调研前学校账号/WebVPN/SeamlessAccess 授权与全文验证，使用 `institutional-access-resolver`
-- `paper-download`：全文下载、BibTeX、学校 WebVPN 机构访问，已有 DOI/arXiv/title 列表时直接走 `scansci-pdf`，不强行 OpenAlex 检索
-- `literature-library`：PDF、BibTeX、Zotero、Markdown notes、papers.csv 和阅读状态管理，使用 `literature-library-manager`
-- `context-budget`：长任务、批量调研、多子代理、代码库探索和跨轮交接的 token/context 节约，使用 `context-budget-manager`
-- `workflow` / `code-exec`：执行环境、自动化、复现流程
-
-## 使用规则
-
-- 这里只放工具类入口
-- 具体学术任务优先从 `academic-hub` 或四个流程分类进入
+引用是否支持主张属于相应证据审查，找新论文属于检索；不要把二者混成格式检查。已有有效工具与登录态直接复用。其他工具文档按具体需要读取，不重新启用泛化上下文预算入口。

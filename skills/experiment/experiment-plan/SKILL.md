@@ -1,6 +1,6 @@
 ---
 name: experiment-plan
-description: "计算机科学实验规划技能。用于把联邦学习、隐私计算、密码学、安全与隐私保护机器学习论文 idea 或 claim 转成可执行实验路线，包含 claim-evidence map、baseline、攻击评估、消融、超参敏感性、计算预算、运行顺序和复现要求。"
+description: 将科学主张转成实验协议、指标、对照、消融和执行计划。用于决定实验与结果表需要证明什么；运行实验和已有结果绘图不由本技能负责。
 ---
 
 # Experiment Plan

@@ -24,65 +24,11 @@ A [Claude Code](https://claude.com/claude-code) / [Codex](https://github.com/ope
 中文乱标点 / LaTeX 没转义 / 读着一股 AI 味。`scipilot-writing-skill` 是 SciPilot 家族的写作成员，
 专治这"最后一公里"——**先判断后下笔，宁缺毋滥，改完必自检。**
 
-### 为什么这不只是一份 prompt 清单
+### 本机工作方式
 
-```
-普通写作 prompt 清单          scipilot-writing-skill
-──────────────────         ──────────────────────
-复制 prompt → 粘贴 →  改完   先按 Stage 0 问清：任务/载体/目标刊/语言/学科/保守度
-凭感觉觉得"好像不错"          改写走三段式：改后文 + 回译核对 + 修改日志
-                            机器自检 writing_lint：AI 指纹/转义/全角/被动/节奏
-                            AI 读稿审稿人视角自审：逻辑/夸大/AI味/一致性 → 回改
-                            诚信红线：只动表达不动数值/方向/结论，绝不臆造引用
-```
+从指定文件和上下文确定范围，已授权任务直接执行；只询问影响正确性的缺项。局部润色默认交付改后文本，回译和日志按需提供。
 
-### 写作质量证据链
-
-这是 SciPilot 家族的统一签名——把"写得好"从口头承诺变成机器可核对的记录，与
-`scipilot-figure-skill` 的视觉自检闭环、`scipilot-cite-skill` 的幻觉门控同源。
-
-```
-改写 → writing_lint.py 机器自检（确定性指纹）
-        + AI 读稿审稿人自审（感知/逻辑问题）
-                  ↓ 发现问题
-        回改 → 重检，最多 3 轮，残留如实标注
-```
-
-- **机器抓确定性问题**：`writing_lint.py` 命中即报——中英 AI 指纹词、机械连接词、悬垂 -ing、
-  否定式平行、破折号密度、空泛归因、模型名所有格、LaTeX 未转义、Word 端残留 Markdown、
-  中文半角标点、被动比例、句长节奏（burstiness）。输出 `lint_report.json`。
-- **AI 读稿抓感知问题**：节奏是否机械、是否 overclaim、术语是否漂移——这些程序查不出。
-- **诚信复核**：diff 确认没动任何数值、公式、引用键、结论方向。
-
-### 核心工作流（Stage 0–7）
-
-```
-0. 信息收集 ── 任务/载体/目标刊/语言/学科/保守度（必问，禁止默默假设）
-   ↓
-1. 解析载体 ── .tex / .docx / .md / 纯文本，定位处理范围
-   ↓
-2. 选路由   ── prompt_library + section_playbooks + journal_styles
-   ↓
-3. 起草改写 ── 三段式：改后文 + 回译核对 + 修改日志
-   ↓
-4. 机器自检 ── writing_lint.py（Gate，命中 FAIL 必处理）
-   ↓
-5. AI 自审  ── 审稿人视角读稿，发现问题回 3，最多 3 轮
-   ↓
-6. 一致性诚信复核 ── 术语/缩写/时态/数字/US-UK；diff 确认未动事实
-   ↓
-7. 交付报告 ── 做了什么 + lint 摘要 + 残留项 + 家族协作建议
-```
-
-### 七条铁律（IRON RULES）
-
-1. **诚信**：只动表达，绝不改数据/数值/方向/结论，绝不臆造文献或结果。
-2. **宁缺毋滥**：原文已好就保留并肯定，不为换词而换词。
-3. **透明可溯**：绝不静默重写，永远给三段式（改后文 + 回译 + 修改日志）。
-4. **去 AI 味但留人味**：删 AI 指纹，但保留作者观点、节奏与术语。
-5. **格式纯净随载体**：LaTeX 转义、Word 全角纯文本、拒绝无谓列表化。
-6. **断言=证据**：hedging/boosting 匹配证据强度，绝不 overclaim，绝不把相关说因果。
-7. **机检门控**：交付前必跑 `writing_lint.py`，FAIL 必处理，不伪造检查。
+保留数值、公式、引用、结论、模板与用户已有修改。长篇或批量语言检查可使用 writing_lint.py；风格命中需人工判断。修改文档项目时完成必要编译或渲染检查，报告实际结果。具体执行规则见 [SKILL.md](SKILL.md)。
 
 ### 覆盖的写作任务（同类清单的全部 + 更多）
 
@@ -153,30 +99,11 @@ full of half-width punctuation, unescaped LaTeX, or an unmistakable AI smell.
 `scipilot-writing-skill` is the writing member of the SciPilot family, built for that last mile:
 **judge before you write, change only what needs changing, and always self-check.**
 
-### Why this isn't just a prompt cookbook
+### Local workflow
 
-```
-Generic prompt list          scipilot-writing-skill
-──────────────────          ──────────────────────
-copy prompt → paste → edit   First asks: task / medium / target journal / language / field / how aggressive
-"looks fine I guess"         Rewrites in 3 parts: revised text + back-translation + change log
-                             Machine self-check (writing_lint): AI-tells / escapes / passive / rhythm
-                             AI read-back as a reviewer: logic / overclaim / AI smell / consistency
-                             Integrity line: never touch numbers / direction / conclusions; never fabricate refs
-```
+Read the supplied text and context, then execute within the authorized scope. Ask only about missing information that materially changes the result. Return revised text by default; back-translation and detailed logs are optional.
 
-### Writing-quality evidence chain
-
-The family signature — turning "it reads well" from a verbal promise into a machine-checkable record,
-the same DNA as the visual self-check loop in `scipilot-figure-skill` and the hallucination gate in
-`scipilot-cite-skill`.
-
-- **Machine catches deterministic issues**: `writing_lint.py` flags AI-tell words (EN+ZH), mechanical
-  connectives, dangling -ing, negative parallelism, em-dash density, vague attribution, possessive on
-  model names, unescaped LaTeX specials, Markdown contamination in Word output, half-width punctuation
-  in Chinese, passive ratio, and sentence-length burstiness. Emits `lint_report.json`.
-- **AI catches perceptual issues**: monotone rhythm, overclaiming, terminology drift — invisible to a linter.
-- **Integrity review**: a diff confirms no number, formula, citation key, or conclusion was altered.
+Preserve facts, numbers, formulas, citations, templates, and existing edits. Use language lint when useful for long or batch work; style matches require contextual judgment. Run relevant compilation or rendering checks for document changes and report actual outcomes. See [SKILL.md](SKILL.md) for the maintained local rules.
 
 ### Tasks covered (everything a prompt list does, and more)
 

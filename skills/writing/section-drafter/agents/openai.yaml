@@ -1,4 +1,4 @@
 interface:
   display_name: "Section Drafter"
   short_description: "按论文蓝图逐章节小节起草初稿"
-  default_prompt: "Use $section-drafter to draft this paper section from the architecture plan and technical notes."
+  default_prompt: "Use $section-drafter to draft the requested sections or manuscript from the supplied evidence and notes, preserving source format and delivering the requested final scope."

@@ -1,6 +1,6 @@
 ---
 name: security-privacy-auditor
-description: "安全与隐私专项审查技能。用于审查密码学、联邦学习、隐私计算和安全论文中的 threat model、security/privacy definitions、adversary capabilities、leakage、trust assumptions、correctness、theorems、proof sketches、reductions、hybrid games、DP/MPC/HE/TEE/secure aggregation/ZKP 相关主张是否严谨。"
+description: 专项检查安全/隐私定义、威胁模型、泄露、假设与证明。用于判断安全主张是否成立；起草证明使用 security-proof-builder，整稿评审使用 cs-paper-reviewer。
 ---
 
 # Security Privacy Auditor

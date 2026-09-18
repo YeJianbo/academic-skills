@@ -1,6 +1,6 @@
 ---
 name: section-writing-polish
-description: "计算机科学论文小节改写与语言润色技能。用于在 section-drafter 起草之后，对密码学、联邦学习、隐私计算、安全与隐私保护机器学习论文段落进行改写、翻译后编辑、Chinglish 修正、学术语气调整、精简表达、LaTeX 段落 polish 和术语一致性检查；默认不重新规划论文主线，质量审查交给 academic-paper-de-vibe。"
+description: "改写、翻译和精简已有计算机科学论文文本，保留技术含义、引用、公式与源格式。用于段落、章节或整稿润色；主线重构和正式审稿分别使用规划与审查技能。"
 ---
 
 # Section Writing Polish
@@ -27,9 +27,9 @@ description: "计算机科学论文小节改写与语言润色技能。用于在
 
 ## 润色流程
 
-每次只处理一个章节或小节：
+按本次请求处理段落、章节或整稿，复用既定主线与术语：
 
-1. 对摘要、引言、结果、讨论或结论，读取 `../../academic-hub/references/publication-story-principles.md`，确认本节如何服务 `release thesis`。
+1. 只有主线或段落职责需要结构性调整时，读取 `../../academic-hub/references/publication-story-principles.md`，确认本节如何服务 `release thesis`。
 2. 确认小节任务和原文主张。
 3. 修复句间逻辑和段落顺序，但不新增未经证实的技术点。
 4. 调整语气、hedging、术语一致性和 LaTeX 附近表达；移除无依据的自我削弱、过程汇报和无关负面比较。

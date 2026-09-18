@@ -1,6 +1,6 @@
 ---
 name: experiment-results-analyzer
-description: "计算机科学实验结果分析技能。用于汇总和解释联邦学习、隐私计算、安全与隐私保护机器学习实验日志、CSV/JSON 指标、表格和曲线，判断 hypothesis 是否被支持，定位失败原因，生成下一轮实验计划、论文结果表述和审稿风险。"
+description: 分析已有实验日志、指标和结果，判断假设支持程度、失败原因和下一步。保留真实数值及条件；新实验执行和图形渲染使用对应技能。
 ---
 
 # Experiment Results Analyzer

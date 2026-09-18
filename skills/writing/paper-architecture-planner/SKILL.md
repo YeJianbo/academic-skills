@@ -1,6 +1,6 @@
 ---
 name: paper-architecture-planner
-description: "计算机科学论文架构与写作方向规划技能。用于在正式写作前确定密码学、联邦学习、隐私计算、安全与隐私保护机器学习论文的研究主线、问题定义、贡献边界、章节结构、小节职责、图表计划、证明/实验证据映射和逐章写作路线；不负责正文起草和最终润色，逐节起草交给 section-drafter，语言润色交给 section-writing-polish，质量检查交给 academic-paper-de-vibe。"
+description: 设计或重构论文主线、贡献边界、章节职责和证据布局。用于整稿蓝图与结构决策；不处理已确定结构下的局部润色。
 ---
 
 # Paper Architecture Planner

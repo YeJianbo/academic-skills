@@ -102,7 +102,7 @@ nature-figure/
 
 ## Backend and contract rules
 
-Ask the user to choose **Python or R** unless the backend is already specified.
+Honor the current request and established user instructions, including AGENTS.md; otherwise use R. Do not ask for repeated confirmation.
 If they ask for a recommendation, use `references/backend-selection.md`.
 
 After a backend is selected, use it exclusively for plotting, previews, exports,
@@ -426,7 +426,7 @@ def luminance_text_color(hex_color):
 ## Reproduction checklist
 
 - [ ] Core conclusion and panel map are clear before styling
-- [ ] Backend is explicitly Python or R
+- [ ] Backend follows the user choice or the R default
 - [ ] **Lines 1–3**: `font.family`, `font.sans-serif` (three fonts), `svg.fonttype = 'none'`
 - [ ] Primary output is **SVG** (`bbox_inches='tight'`)
 - [ ] Right and top spines off; `legend.frameon = False`

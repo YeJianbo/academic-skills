@@ -1,6 +1,6 @@
 ---
 name: paper-figure
-description: "论文图表生成技能。用于从计算机科学实验结果生成投稿级 figures/tables，包括 FL/privacy/security 的主结果图、消融图、隐私-效用曲线、通信/延迟图、攻击成功率图、多面板图和 LaTeX include snippets；数据图优先用可复现 matplotlib/seaborn，复杂示意图按需转 nature-figure 或 scipilot-figure-skill。"
+description: 组织实验论文的主结果、消融及多图多表组合，选择证据呈现和 LaTeX 接入。绘制交由 nature-figure；单张已有图的局部修改直接使用绘图技能。
 ---
 
 # Paper Figure
@@ -26,7 +26,7 @@ description: "论文图表生成技能。用于从计算机科学实验结果生
 1. 明确图要支持 `release thesis` 的哪个 claim、在哪些条件下成立。
 2. 读取结果数据和 experiment plan。
 3. 选择图型：有时间/round 用 line，方法比较用 grouped bar/table，tradeoff 用 curve，矩阵用 heatmap。
-4. 生成可复现脚本，不手改最终图片。
+4. 使用 `nature-figure` 生成可复现脚本并执行；沿用已明确的后端，未指定时使用 R，不手改最终图片。
 5. 导出 PDF/SVG/PNG。
 6. 检查文字裁切、标签、legend、色盲安全、灰度可读、单位和统计量。
 7. 生成 LaTeX include snippet 和 caption 草稿。
@@ -34,5 +34,5 @@ description: "论文图表生成技能。用于从计算机科学实验结果生
 ## 协作
 
 - 数据可视化顾问：可参考 `scipilot-figure-skill`。
-- Nature/high-impact 多面板图：可转 `nature-figure`。
+- 科研绘制、导出和实际视觉检查：使用 `nature-figure`。
 - 图表 caption 写作：转 `writing/section-drafter` 或 `section-writing-polish`。

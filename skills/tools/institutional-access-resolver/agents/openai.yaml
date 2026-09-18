@@ -1,4 +1,4 @@
 interface:
   display_name: "Institutional Access Resolver"
-  short_description: "调研前机构访问授权与全文验证"
-  default_prompt: "Use $institutional-access-resolver to prepare institutional access before downloading papers."
+  short_description: "按实际订阅全文需求处理机构访问，复用登录态并验证下载"
+  default_prompt: "Use $institutional-access-resolver to access the subscription-only papers needed for this task, reusing an existing authenticated session when available."

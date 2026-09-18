@@ -3,8 +3,8 @@ version: 2.0.0
 description: >
   Declarative manifest for the static/dynamic split. SKILL.md uses this to
   decide which fragments to load for a given figure request. The main axis is
-  the plotting backend (Python or R), which is a blocking gate: it must be
-  chosen explicitly before any figure is drawn. The large body of design,
+  the plotting backend (Python or R), resolved from established user
+  instructions with R as the fallback. The large body of design,
   API, pattern, and QA material stays in on-demand references.
 
 always_load:
@@ -15,15 +15,12 @@ always_load:
 axes:
   backend:
     detect: |
-      BLOCKING GATE. Determine the plotting backend from an explicit user
-      choice or a clearly language-specific input file/workflow. If the user
-      has NOT explicitly chosen Python or R, ask exactly one concise question —
-      "Python or R?" — and stop. Do not default, do not guess, do not generate
-      mock data or scripts before the answer. Only recommend a backend when the
-      user explicitly asks you to choose; in that case use
-      references/backend-selection.md, state the reason, then proceed.
-      Once selected, the backend is exclusive for all drawing, previewing,
-      exporting, and visual QA.
+      Follow static/core/contract.md for backend selection. Honor the current
+      request and established user instructions, including AGENTS.md; otherwise
+      use R. Continue existing Python plotting code when explicitly requested.
+      Do not ask for repeated confirmation. Use only the selected backend for
+      drawing, previewing, exporting, and visual QA.
+
     values:
       python:  static/fragments/backend/python.md
       r:       static/fragments/backend/r.md
@@ -33,7 +30,7 @@ references:
   on_demand:
     - condition: convert a user request into core conclusion, evidence hierarchy, panel map, and review-risk checks
       path: references/figure-contract.md
-    - condition: user has not chosen Python/R, asks for a recommendation, or a mixed Python/R workflow is possible
+    - condition: user asks for a backend recommendation or an explicitly requested workflow needs a backend trade-off explained
       path: references/backend-selection.md
     - condition: user chooses R or provides R scripts/templates/data
       path: references/r-workflow.md

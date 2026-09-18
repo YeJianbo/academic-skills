@@ -21,7 +21,7 @@ description: "计算机科学论文复现包整理技能。用于把联邦学习
 3. **Run Scripts**：sanity、pilot、main、ablation、sensitivity、evaluation、figure/table 生成脚本。
 4. **Configs**：所有关键 run 的配置文件或命令参数。
 5. **Seeds**：每个 run 的 seed；多 seed 结果要保留聚合方式。
-6. **Data Manifest**：数据来源、版本、划分、预处理、hash、是否可公开。
+6. **Data Manifest**：数据来源、版本、划分、预处理、是否可公开；仅在需要核验数据身份或完整性时记录 hash。
 7. **Results Manifest**：run id、命令、commit、环境、GPU、输出路径、指标、失败 run。
 8. **Expected Outputs**：关键表格、图、指标范围和复现时间估计。
 9. **Hardware Record**：GPU 型号与数量、CUDA/cu121/cu128、driver、PyTorch/CUDA runtime、训练时长。

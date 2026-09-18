@@ -4,7 +4,7 @@ This file records local skills that can support the writing workflow. Keep them 
 
 ## Primary Writing Workflow
 
-Use the local `writing` workflow as the default for computer science papers:
+For computer science writing, select the owner for the actual request from the following roles. This is not a mandatory sequence; existing paragraphs can go directly to polish, and an authorized complete draft continues through the requested scope:
 
 1. `paper-architecture-planner`
 2. `section-drafter`
@@ -36,7 +36,7 @@ Use when the task is figure creation, figure polishing, multi-panel manuscript f
 
 Path: `C:\Users\YeJianbo\.codex\skills\scipilot-figure-skill`
 
-Use when the user needs data visualization advice, chart selection, figure design, avoidance of common plotting errors, or Nature/Science/IEEE/Elsevier/PNAS-grade scientific figures. Prefer it for data-to-figure reasoning; prefer `nature-figure` for Nature-style multi-panel production and QA.
+Use when the user needs data visualization advice, chart selection, figure design, avoidance of common plotting errors, or Nature/Science/IEEE/Elsevier/PNAS-grade scientific figures. Use it for data-to-figure reasoning; use `nature-figure` for scientific figure production and QA, following the established user backend or the R default.
 
 ### `codex-paper-figure-skill`
 
@@ -71,6 +71,6 @@ This is a legacy duplicate of earlier top-conference writing guidance. Do not ro
 
 1. If the user asks to plan or write a CS paper, stay inside `writing`.
 2. If the user asks for Nature/Science/Cell style prose, consult `scipilot-writing-skill` and adapt only compatible process rules.
-3. If the user asks for figures, route to `nature-figure` or `scipilot-figure-skill`.
+3. For figures, use `scipilot-figure-skill` when chart-selection advice is needed and `nature-figure` for production and QA.
 4. If the user asks for post-draft review, route to `review` or `academic-paper-de-vibe` depending on whether they want reviewer critique or prose/logic cleanup.
 5. Keep economics and medical writing resources as references only; do not use them by default.

@@ -93,5 +93,5 @@ We have [具体改了什么] (see Section X, p. Y, lines Z): "[引用改后的�
 
 ## 与本技能其他剧本的衔接
 - 写完 rebuttal 后，用剧本 6（英文润色）+ 剧本 9（去 AI 味）把回复语言打磨干净。
-- 需要补的新实验若涉及配图 → `scipilot-figure-skill`；补文献 → `scipilot-cite-skill`。
+- 需要补的新实验若涉及配图 → `scipilot-figure-skill`；补文献 → `cs-literature-search`。
 - 回复语气可借剧本 13（审稿人视角）反向预判："如果我是审稿人，这条回应能说服我吗？"

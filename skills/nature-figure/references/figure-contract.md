@@ -45,8 +45,10 @@ minimum set of panels that make the conclusion clear and defensible.
 - Separate primary evidence from supporting evidence. The primary evidence gets
   the hero panel or the clearest axis; controls and robustness panels should be
   visually quieter.
-- If the user provides data but no claim, infer a provisional claim from the data
-  request and ask for confirmation before final styling.
+- If the user provides data but no claim, inspect the data and manuscript context.
+  State a provisional descriptive question and proceed when the meaning is clear;
+  ask only when missing variable meanings or goals would change the interpretation.
+  Do not invent causal claims or statistical significance.
 
 ## Archetype selection
 

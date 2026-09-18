@@ -1,6 +1,6 @@
 ---
 name: paper-reading-synthesizer
-description: "计算机科学论文精读与证据矩阵技能。用于任意 CS 主题，在按主题宽检索有声誉文献并下载 PDF 或收集 BibTeX 后逐篇阅读论文，必要时先消费 paper-evidence-distiller 生成的单篇证据卡，再生成结构化 paper notes、claim-evidence matrix、assumption/model/method/baseline/metric/failure-mode 表、引用定位、与当前 idea 的关系、可复现实验或本机验证线索和研究空白证据；投稿目标会议/期刊是可选适配信息；适合 40+ 篇文献调研、Related Work 前置阅读、审稿前引用核验和选题空白挖掘。"
+description: 精读并对照多篇论文的假设、方法、证据和失败条件，形成研究笔记与证据矩阵。单篇证据卡、外部检索和正文写作分别交给对应技能。
 ---
 
 # Paper Reading Synthesizer

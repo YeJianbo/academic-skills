@@ -1,4 +1,4 @@
 interface:
   display_name: "Run Experiment"
-  short_description: "本机conda/CUDA实验运行和日志管理"
-  default_prompt: "Use $run-experiment to run this CS experiment with conda/CUDA, starting from sanity and pilot runs."
+  short_description: "执行已授权的计算机科学实验并保留配置、原始日志和结果"
+  default_prompt: "Use $run-experiment to execute the requested experiment in the existing suitable environment, reusing valid checks and preserving run configurations, raw logs, and results."

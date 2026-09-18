@@ -1,4 +1,4 @@
 interface:
   display_name: "CS Literature Search"
   short_description: "DBLP 优先、OpenAlex 可选的 CS 文献检索"
-  default_prompt: "Use $cs-literature-search in DBLP-first quick seed mode. Do not use OpenAlex unless explicitly needed; send direct downloads to $scansci-pdf."
+  default_prompt: "Use $cs-literature-search for the requested search scope, reusing existing verified sources and retrieving missing evidence. Select quick or full coverage from the request; use scansci-pdf when its download capabilities help."
